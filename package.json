@@ -1,0 +1,35 @@
+{
+  "name": "testing-intelligence-machine-tim",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "jest --verbose --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/401-Midterm-CF/Testing-Intelligence-Machine-TIM.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/401-Midterm-CF/Testing-Intelligence-Machine-TIM/issues"
+  },
+  "homepage": "https://github.com/401-Midterm-CF/Testing-Intelligence-Machine-TIM#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "heroku": "^7.59.1",
+    "jest": "^27.3.1",
+    "mongo": "^0.1.0",
+    "mongoose": "^6.0.12",
+    "node": "^17.1.0",
+    "nodemon": "^2.0.15",
+    "slappey": "^4.0.0",
+    "supertest": "^6.1.6"
+  }
+}
