@@ -6,14 +6,13 @@ mongoose
 	.then(() => console.log('TIM to MongoDB, Come-in MongoDB'));
 
 // ----- Discord Dependencies ------
-const { Client, Intents, Collector, Collection } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 client.commands = new Collection();
 
 // ---------- Variables -------
-const fetch = require('node-fetch');
 const fs = require('fs');
 const memberModel = require('./lib/model/memberSchema');
 const Token = process.env.DISCORD_BOT_TOKEN;
@@ -67,6 +66,5 @@ client.on('messageCreate', async (message) => {
   if (command === 'quiz') {
     client.commands.get('quiz').execute(message, args)
   }
-
 });
 client.login(Token);
