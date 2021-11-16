@@ -1,61 +1,72 @@
-'use strict';
+// ---- Dependencies ----------
 require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+mongoose
+	.connect(process.env.MONGODB_URI)
+	.then(() => console.log('TIM to MongoDB, Come-in MongoDB'));
 
-
-const memberModel = require('./lib/model/memberSchema');
-const { Client, Intents, Collection } = require('discord.js');
-const prefix = '!';
-const fs= require('fs')
-
+// ----- Discord Dependencies ------
+const { Client, Intents, Collector, Collection } = require('discord.js');
 const client = new Client({
-  intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
+	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
 client.commands = new Collection();
 
-const commmandFiles = fs.readdirSync('./lib/commands').filter(file => file.endsWith('.js'));
-for(const file of commmandFiles){
-  const command = require(`./lib/commands/${file}`);
-
-  client.commands.set(command.name, command)
-}
-const Token = process.env.DISCORD_BOT_TOKEN;
+// ---------- Variables -------
 const fetch = require('node-fetch');
+const fs = require('fs');
+const memberModel = require('./lib/model/memberSchema');
+const Token = process.env.DISCORD_BOT_TOKEN;
+const prefix = '!';
+
+// --------- Functions -------
+const commmandFiles = fs
+	.readdirSync('./lib/commands')
+	.filter((file) => file.endsWith('.js'));
+for (const file of commmandFiles) {
+	const command = require(`./lib/commands/${file}`);
+
+	client.commands.set(command.name, command);
+}
+const addMember = require('./lib/guild/addMember');
+
+// Firing up TIM
 client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+	console.log(`Logged in as ${client.user.tag}!`);
 });
 
+// Channel message commands
 client.on('messageCreate', async (message) => {
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
-  let memberData
-  if (message) {
-    memberData = await memberModel.findOne({
-      userID: message.author.id,
-    });
-    if (!memberData) {
-      try {
-        let newMember = await memberModel.create({
-          userID: message.author.id,
-          username: message.author.username,
-          serverID: message.guildId,
-          moneys: 1000,
-          vault: 0,
-        });
-        profile.save();
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  }
+	const args = message.content.slice(prefix.length).split(/ +/);
+	const command = args.shift().toLowerCase();
 
-  const args = message.content.slice(prefix.length).split(/ +/);
-  const command = args.shift().toLowerCase();
-  if (command === 'ping') {
-    client.commands.get('ping').execute(message, args)
-  }
+	// Add Member if doesnt exist.
+	if (!message.content.startsWith(prefix) || message.author.bot) return;
+	let memberData;
+	if (!message.author.bot) {
+		memberData = await memberModel.findOne({
+			userID: message.author.id,
+		});
+		if (!memberData) {
+			try {
+				addMember(message);
+				profile.save();
+			} catch (err) {
+				throw err;
+			}
+		}
+	}
+	// --------------- Commands ---------------
+
+	// ---- !ping ----
+	if (command === 'ping') {
+		client.commands.get('ping').execute(message, args);
+	}
+
+  // ---- !quiz ----
   if (command === 'quiz') {
     client.commands.get('quiz').execute(message, args)
   }
+
 });
 client.login(Token);
