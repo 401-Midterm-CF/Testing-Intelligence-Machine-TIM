@@ -1,7 +1,9 @@
 // ---- Dependencies ----------
 require('dotenv').config();
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+mongoose
+	.connect(process.env.MONGODB_URI)
+	.then(() => console.log('TIM to MongoDB, Come-in MongoDB'));
 
 // ----- Discord Dependencies ------
 const { Client, Intents, Collector, Collection } = require('discord.js');
@@ -26,6 +28,7 @@ for (const file of commmandFiles) {
 
 	client.commands.set(command.name, command);
 }
+const addMember = require('./lib/guild/addMember');
 
 // Firing up TIM
 client.on('ready', () => {
@@ -37,32 +40,27 @@ client.on('messageCreate', async (message) => {
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 
-	// !ping Command
-	if (command === 'ping') {
-		client.commands.get('ping').execute(message, args);
-	}
-
-	// !quiz command
+	// Add Member if doesnt exist.
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	let memberData;
-	if (message) {
+	if (!message.author.bot) {
 		memberData = await memberModel.findOne({
 			userID: message.author.id,
 		});
 		if (!memberData) {
 			try {
-				let newMember = await memberModel.create({
-					userID: message.author.id,
-					username: message.author.username,
-					serverID: message.guildId,
-					moneys: 1000,
-					vault: 0,
-				});
+				addMember(message);
 				profile.save();
 			} catch (err) {
-				console.log(err);
+				throw err;
 			}
 		}
+	}
+	// --------------- Commands ---------------
+
+	// ---- !ping ----
+	if (command === 'ping') {
+		client.commands.get('ping').execute(message, args);
 	}
 
 	if (command === 'quiz') {
