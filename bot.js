@@ -48,13 +48,14 @@ client.on('messageCreate', async (message) => {
 		});
 		if (!memberData) {
 			try {
-				addMember(message);
+				memberData = addMember(message);
 				profile.save();
 			} catch (err) {
 				throw err;
 			}
 		}
 	}
+
 	// --------------- Commands ---------------
 
 	// ---- !ping ----
@@ -62,9 +63,16 @@ client.on('messageCreate', async (message) => {
 		client.commands.get('ping').execute(message, args);
 	}
 
-  // ---- !quiz ----
-  if (command === 'quiz') {
-    client.commands.get('quiz').execute(message, args)
-  }
+	// ---- !quiz ----
+	if (command === 'quiz') {
+		client.commands.get('quiz').execute(message, args);
+	}
+	// ---- !moneys ---- ---> Name in progress
+	if (command === 'balance' || 'mullah' || 'moneys' || 'munnies') {
+		client.commands.get('balance').execute(message, args, memberData);
+	}
+	if (command === 'leave') {
+		client.commands.get('leave').execute(message, args);
+	}
 });
 client.login(Token);
