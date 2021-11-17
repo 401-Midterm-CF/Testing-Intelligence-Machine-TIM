@@ -68,8 +68,17 @@ client.on('messageCreate', async (message) => {
 		client.commands.get('quiz').execute(message, args, memberData);
 	}
 	// ---- !moneys ---- ---> Name in progress
-	if (command === ('balance' || 'mullah' || 'moneys' || 'munnies')) {
+
+	if (
+		command === 'balance' ||
+		command === 'mullah' ||
+		command === 'moneys' ||
+		command === 'munnies'
+	) {
 		client.commands.get('balance').execute(message, args, memberData);
+	}
+	if (command === 'pls-sir') {
+		client.commands.get('pls-sir').execute(message, args, memberData);
 	}
 	if (command === 'leave') {
 		client.commands.get('leave').execute(message, args);
