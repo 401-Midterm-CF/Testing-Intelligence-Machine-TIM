@@ -80,6 +80,9 @@ client.on('messageCreate', async (message) => {
 	if (command === 'pls-sir') {
 		client.commands.get('pls-sir').execute(message, args, memberData);
 	}
+	if (command === 'withdrawal') {
+		client.commands.get('withdrawal').execute(message, args, memberData);
+	}
 	if (command === 'leave') {
 		client.commands.get('leave').execute(message, args);
 	}
