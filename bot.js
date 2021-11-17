@@ -6,7 +6,7 @@ mongoose
 	.then(() => console.log('TIM to MongoDB, Come-in MongoDB'));
 
 // ----- Discord Dependencies ------
-const { Client, Intents, Collection } = require('discord.js');
+const { Client, Intents, Collection, Discord } = require('discord.js');
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
@@ -83,8 +83,8 @@ client.on('messageCreate', async (message) => {
 	if (command === 'leave') {
 		client.commands.get('leave').execute(message, args);
 	}
-  if(command === 'welcome'){
-    client.commands.get('welcome').execute(message, args)
-  }
+	if (command === 'welcome') {
+		client.commands.get('welcome').execute(message, args);
+	}
 });
 client.login(Token);
