@@ -65,9 +65,10 @@ client.on('messageCreate', async (message) => {
 
 	// ---- !quiz ----
 	if (command === 'quiz') {
-		client.commands.get('quiz').execute(message, args);
+		client.commands.get('quiz').execute(message, args, memberData);
 	}
 	// ---- !moneys ---- ---> Name in progress
+
 	if (
 		command === 'balance' ||
 		command === 'mullah' ||
@@ -82,5 +83,8 @@ client.on('messageCreate', async (message) => {
 	if (command === 'leave') {
 		client.commands.get('leave').execute(message, args);
 	}
+  if(command === 'welcome'){
+    client.commands.get('welcome').execute(message, args)
+  }
 });
 client.login(Token);
