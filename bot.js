@@ -65,7 +65,7 @@ client.on('messageCreate', async (message) => {
 
 	// ---- !quiz ----
 	if (command === 'quiz') {
-		client.commands.get('quiz').execute(message, args);
+		client.commands.get('quiz').execute(message, args, memberData);
 	}
 	// ---- !moneys ---- ---> Name in progress
 	if (command === 'balance' || 'mullah' || 'moneys' || 'munnies') {
