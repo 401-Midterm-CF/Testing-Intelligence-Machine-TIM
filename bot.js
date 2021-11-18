@@ -83,11 +83,17 @@ client.on('messageCreate', async (message) => {
 	if (command === 'withdrawal') {
 		client.commands.get('withdrawal').execute(message, args, memberData);
 	}
+		if (command === 'deposit') {
+		client.commands.get('deposit').execute(message, args, memberData);
+	}
 	if (command === 'leave') {
 		client.commands.get('leave').execute(message, args);
 	}
 	if (command === 'welcome') {
 		client.commands.get('welcome').execute(message, args);
+	}
+	if (command === 'help') {
+		client.commands.get('help').execute(message, args);
 	}
 	// if (command === 'gamble'){
 	// 	const game = message.content.split(' ')[1];
