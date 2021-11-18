@@ -17,7 +17,6 @@ const fs = require('fs');
 const memberModel = require('./lib/model/memberSchema');
 const Token = process.env.DISCORD_BOT_TOKEN;
 const prefix = '!';
-
 // --------- Functions -------
 const commandFiles = fs
 	.readdirSync('./lib/commands')
@@ -65,9 +64,12 @@ client.on('messageCreate', async (message) => {
 
 	// ----- !quiz ----- //
 	if (command === 'quiz') {
-		client.commands.get('quiz').execute(message, args, memberData);
+		if (message.content.split(' ')[1] === undefined) {
+			client.commands.get('quiz').execute(message, args, memberData);
+		} else {
+			client.commands.get('quiz').execute(message, args, memberData, wager);
+		}
 	}
-
 	// ----- !currency ----- /
 	if (
 		command === 'balance' ||
@@ -77,7 +79,7 @@ client.on('messageCreate', async (message) => {
 	) {
 		client.commands.get('balance').execute(message, args, memberData);
 	}
-	if (command === 'gamble'){
+	if (command === 'gamble') {
 		// const game = message.content.split(' ')[1];
 		client.commands.get('gamble').execute(message, args, memberData);
 	}
@@ -87,7 +89,7 @@ client.on('messageCreate', async (message) => {
 	if (command === 'withdrawal') {
 		client.commands.get('withdrawal').execute(message, args, memberData);
 	}
-		if (command === 'deposit') {
+	if (command === 'deposit') {
 		client.commands.get('deposit').execute(message, args, memberData);
 	}
 
@@ -101,6 +103,5 @@ client.on('messageCreate', async (message) => {
 	if (command === 'help') {
 		client.commands.get('help').execute(message, args);
 	}
-
 });
 client.login(Token);
