@@ -95,9 +95,9 @@ client.on('messageCreate', async (message) => {
 	if (command === 'help') {
 		client.commands.get('help').execute(message, args);
 	}
-	// if (command === 'gamble'){
-	// 	const game = message.content.split(' ')[1];
-	// 	client.commands.get(`${game}`).execute(message, args, memberData);
-	// }
+	if (command === 'gamble'){
+		// const game = message.content.split(' ')[1];
+		client.commands.get('gamble').execute(message, args, memberData);
+	}
 });
 client.login(Token);
