@@ -65,7 +65,7 @@ client.on('messageCreate', async (message) => {
 
 	// ----- !quiz ----- //
 	if (command === 'quiz') {
-		client.commands.get('quiz').execute(message, args, memberData);
+		client.commands.get('quiz').execute(message, args, memberData, wager);
 	}
 
 	// ----- !currency ----- /
@@ -77,7 +77,7 @@ client.on('messageCreate', async (message) => {
 	) {
 		client.commands.get('balance').execute(message, args, memberData);
 	}
-	if (command === 'gamble'){
+	if (command === 'gamble') {
 		// const game = message.content.split(' ')[1];
 		client.commands.get('gamble').execute(message, args, memberData);
 	}
@@ -87,7 +87,7 @@ client.on('messageCreate', async (message) => {
 	if (command === 'withdrawal') {
 		client.commands.get('withdrawal').execute(message, args, memberData);
 	}
-		if (command === 'deposit') {
+	if (command === 'deposit') {
 		client.commands.get('deposit').execute(message, args, memberData);
 	}
 
@@ -101,6 +101,5 @@ client.on('messageCreate', async (message) => {
 	if (command === 'help') {
 		client.commands.get('help').execute(message, args);
 	}
-
 });
 client.login(Token);
