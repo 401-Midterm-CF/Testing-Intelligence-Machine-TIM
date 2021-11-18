@@ -29,17 +29,17 @@ for (const file of commandFiles) {
 }
 const addMember = require('./lib/guild/addMember');
 
-// Firing up TIM
+// ----- Firing up TIM ----- //
 client.on('ready', () => {
 	console.log(`Logged in as ${client.user.tag}!`);
 });
 
-// Channel message commands
+// ----- Channel message commands ----- //
 client.on('messageCreate', async (message) => {
 	const args = message.content.slice(prefix.length).split(/ +/);
 	const command = args.shift().toLowerCase();
 
-	// Add Member if doesnt exist.
+	// ----- Add Member if doesnt exist ----- //
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 	let memberData;
 	if (!message.author.bot) {
@@ -56,19 +56,19 @@ client.on('messageCreate', async (message) => {
 		}
 	}
 
-	// --------------- Commands ---------------
+	// --------------- Commands --------------- //
 
-	// ---- !ping ----
+	// ----- !ping ----- //
 	if (command === 'ping') {
 		client.commands.get('ping').execute(message, args);
 	}
 
-	// ---- !quiz ----
+	// ----- !quiz ----- //
 	if (command === 'quiz') {
 		client.commands.get('quiz').execute(message, args, memberData);
 	}
-	// ---- !moneys ---- ---> Name in progress
 
+	// ----- !currency ----- /
 	if (
 		command === 'balance' ||
 		command === 'mullah' ||
@@ -76,6 +76,10 @@ client.on('messageCreate', async (message) => {
 		command === 'munnies'
 	) {
 		client.commands.get('balance').execute(message, args, memberData);
+	}
+	if (command === 'gamble'){
+		// const game = message.content.split(' ')[1];
+		client.commands.get('gamble').execute(message, args, memberData);
 	}
 	if (command === 'pls-sir') {
 		client.commands.get('pls-sir').execute(message, args, memberData);
@@ -86,6 +90,8 @@ client.on('messageCreate', async (message) => {
 		if (command === 'deposit') {
 		client.commands.get('deposit').execute(message, args, memberData);
 	}
+
+	// ----- !userInterface ----- //
 	if (command === 'leave') {
 		client.commands.get('leave').execute(message, args);
 	}
@@ -95,9 +101,6 @@ client.on('messageCreate', async (message) => {
 	if (command === 'help') {
 		client.commands.get('help').execute(message, args);
 	}
-	if (command === 'gamble'){
-		// const game = message.content.split(' ')[1];
-		client.commands.get('gamble').execute(message, args, memberData);
-	}
+
 });
 client.login(Token);
