@@ -6,7 +6,7 @@ mongoose
 	.then(() => console.log('TIM to MongoDB, Come-in MongoDB'));
 
 // ----- Discord Dependencies ------
-const { Client, Intents, Collection, Discord } = require('discord.js');
+const { Client, Intents, Collection } = require('discord.js');
 const client = new Client({
 	intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES],
 });
