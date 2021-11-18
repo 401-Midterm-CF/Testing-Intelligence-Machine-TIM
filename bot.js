@@ -19,10 +19,10 @@ const Token = process.env.DISCORD_BOT_TOKEN;
 const prefix = '!';
 
 // --------- Functions -------
-const commmandFiles = fs
+const commandFiles = fs
 	.readdirSync('./lib/commands')
 	.filter((file) => file.endsWith('.js'));
-for (const file of commmandFiles) {
+for (const file of commandFiles) {
 	const command = require(`./lib/commands/${file}`);
 
 	client.commands.set(command.name, command);
