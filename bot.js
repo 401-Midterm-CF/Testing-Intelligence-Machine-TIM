@@ -17,7 +17,6 @@ const fs = require('fs');
 const memberModel = require('./lib/model/memberSchema');
 const Token = process.env.DISCORD_BOT_TOKEN;
 const prefix = '!';
-
 // --------- Functions -------
 const commandFiles = fs
 	.readdirSync('./lib/commands')
@@ -65,9 +64,12 @@ client.on('messageCreate', async (message) => {
 
 	// ----- !quiz ----- //
 	if (command === 'quiz') {
-		client.commands.get('quiz').execute(message, args, memberData, wager);
+		if (message.content.split(' ')[1] === undefined) {
+			client.commands.get('quiz').execute(message, args, memberData);
+		} else {
+			client.commands.get('quiz').execute(message, args, memberData, wager);
+		}
 	}
-
 	// ----- !currency ----- /
 	if (
 		command === 'balance' ||
