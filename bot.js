@@ -89,5 +89,9 @@ client.on('messageCreate', async (message) => {
 	if (command === 'welcome') {
 		client.commands.get('welcome').execute(message, args);
 	}
+	// if (command === 'gamble'){
+	// 	const game = message.content.split(' ')[1];
+	// 	client.commands.get(`${game}`).execute(message, args, memberData);
+	// }
 });
 client.login(Token);
