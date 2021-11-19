@@ -112,6 +112,18 @@ This is an example of how to list things you need to use the software and how to
   ```
   npm install mongoose
   ```
+ - node-fetch
+  ```
+  npm install node-fetch
+  ```
+ - dotenv
+  ```
+  npm install dotenv
+  ```
+ - cors
+  ```
+  npm install cors
+  ```
 ### Installation
 
 - Any installations required.
