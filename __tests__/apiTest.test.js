@@ -63,9 +63,10 @@ describe('Testing database', ()=> {
   it('should add a new user to the user database', async ()=> {
     //need to create user for the test only and drop user from database when the test is over
     let newMember = await memberSchema.create({
-      userID: 1,
+      userID: 16,
       userName: 'test',
       serverID: 1,
+      moneys: 1000,
       vault: 0,
     });
     let memberData = await memberSchema.findOne({
