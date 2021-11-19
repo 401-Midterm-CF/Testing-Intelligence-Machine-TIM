@@ -103,5 +103,11 @@ client.on('messageCreate', async (message) => {
 	if (command === 'help') {
 		client.commands.get('help').execute(message, args);
 	}
+	if (command === 'play'){
+		client.commands.get('help').execute(message,args);
+	}
+	if (command === 'leave') {
+		client.commands.get('leave').execute(message, args);
+	}
 });
 client.login(Token);

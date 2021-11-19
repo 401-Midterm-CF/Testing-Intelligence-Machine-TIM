@@ -20,11 +20,13 @@
   },
   "homepage": "https://github.com/401-Midterm-CF/Testing-Intelligence-Machine-TIM#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.5.3",
     "axios": "^0.24.0",
     "cors": "^2.8.5",
     "discord.js": "^13.3.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "ffmpeg-static": "^4.4.0",
     "fs": "^0.0.1-security",
     "heroku": "^7.59.1",
     "jest": "^27.3.1",
