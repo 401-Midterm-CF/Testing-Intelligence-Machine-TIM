@@ -54,7 +54,7 @@ Project Management Board:
 
 (https://trello.com/b/wxY50tfV/401-trello)
 
-UML:
+UML-ver1:
 
 ![UML](./lib/images/TriviaBot-uml.jpg)
 
@@ -72,7 +72,13 @@ UML-ver3:
 
 <br />
 
-Schema:
+Schema-ver1:
+
+![Schema](./lib/images/db_schema.png)
+
+<br />
+
+Schema-ver2:
 
 ![Schema](./lib/images/newSchema.png)
 
