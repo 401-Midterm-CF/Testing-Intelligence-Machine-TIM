@@ -92,7 +92,26 @@ This is an example of how to list things you need to use the software and how to
   ```
   npm install npm@latest -g
   ```
-
+ - heroku
+  ```
+  npm install heroku
+  ```
+ - express
+  ```
+  npm install express
+  ```
+ - jest
+  ```
+  npm install jest
+  ```
+ - slappery
+  ```
+  npm install slappery
+  ```
+ - mongoose
+  ```
+  npm install mongoose
+  ```
 ### Installation
 
 - Any installations required.
