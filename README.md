@@ -132,22 +132,6 @@ For reference on where to sue out App
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-  - [ ] Chinese
-  - [ ] Spanish
-
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 <!-- CONTRIBUTING -->
 
 ## Contributing
@@ -185,7 +169,7 @@ Project Link: [GitHub](https://github.com/your_username/repo_name)
 
 ## Acknowledgments
 
--> Any we have along the way.
+Code Fellows, friends, and family
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -213,53 +197,4 @@ Project Link: [GitHub](https://github.com/your_username/repo_name)
 [github-urlvalton]: https://github.com/jones-trae
 [product-screenshot]: images/screenshot.png
 
-## Change log
 
-11/13/2021 - Anthony Morton
-
-### first commit
-
-- Created package.JSON
-
-  - Dependencies added: express, dotenv, nodemon, axios, supertest, jest
-
-- Created index.js (server entry point)
-
-- Created server.js
-
-  - Server is up and running
-  - server get has been created
-
-- Created routes folder
-
-  - created quizAPI.js
-  - created userStats.js
-    - need to finish making crud routes
-    - created get all users function
-
-- Created **tests** folder
-  -created apiTest.test.js
-  -no tests created
-
-- Created model folder
-  - created user.js
-    - user.js
-
-### second commit
-
-- index.js
-
-  - added connectiong to mongoDB via process.env.MONDGODB_URI to all heroku to allow connection to MongoDB
-
-- created.env
-  - added MongoDB URI
-
-### third commit
-
-- user.js
-  - changed variable names
-- userStats.js
-  - finished get all users function
-  - need to adjust create user function. Able to save to the db, but is not creating a proper user
-- server.js
-  - added get and post for create user and get all users
