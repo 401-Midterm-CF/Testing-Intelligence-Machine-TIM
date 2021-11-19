@@ -44,11 +44,11 @@
 
 ## About The Project
 
--> Here is where we post a Blurp about the Project.
+-> T.I.M. is a discord bot centered around an economy system designed to increase interactivity between users, channels, and guilds.
 
 Problem Domain:
 
-- Why did we build this project.
+- To create a Discord Bot for entertainment and self education
 
 Project Management Board:
 
