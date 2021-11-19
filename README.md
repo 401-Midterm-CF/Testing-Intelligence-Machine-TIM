@@ -72,16 +72,6 @@ Schema:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-### Frameworks
-
-Examples Below:
-
-- [Express.js](https://expressjs.com)
-- [Jest](https://jestjs.io)
-- [PostGres.js](https://node-postgres.com)
-
-<p align="right">(<a href="#top">back to top</a>)</p>
-
 ## Project Dependencies
 
 ### Prerequisites
@@ -123,6 +113,10 @@ This is an example of how to list things you need to use the software and how to
  - cors
   ```
   npm install cors
+  ```
+ - discord
+  ```
+  npm install discord
   ```
 ### Installation
 
