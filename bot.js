@@ -92,6 +92,9 @@ client.on('messageCreate', async (message) => {
 	if (command === 'deposit') {
 		client.commands.get('deposit').execute(message, args, memberData);
 	}
+	if (command === 'clear') {
+		client.commands.get('clear').execute(message, args, memberData);
+	}
 
 	// ----- !userInterface ----- //
 	if (command === 'leave') {
