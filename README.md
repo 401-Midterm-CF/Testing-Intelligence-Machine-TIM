@@ -66,6 +66,12 @@ UML-ver2:
 
 <br />
 
+UML-ver3:
+
+![UML](./lib/images/TIM-uml.3.jpg)
+
+<br />
+
 Schema:
 
 ![Schema](./lib/images/newSchema.png)
