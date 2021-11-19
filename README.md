@@ -2,6 +2,12 @@
 
 <div id="top"></div>
 
+
+ TIM
+  - [Adding TIM](https://discord.com/api/oauth2/authorize?client_id=909950762744946759&permissions=8&scope=bot)
+  - [TIM GitHUB](https://github.com/401-Midterm-CF/Testing-Intelligence-Machine-TIM)
+
+
 [![LinkedIn][linkedin-shield]][linkedin-url]
 [![GitHub][github-shield]][github-url]
 <br />
