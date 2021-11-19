@@ -68,7 +68,7 @@ UML-ver2:
 
 Schema:
 
-![newSchema](./lib/images/db_schema.png)
+![Schema](./lib/images/newSchema.png)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
