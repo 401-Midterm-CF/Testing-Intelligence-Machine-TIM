@@ -4,8 +4,8 @@
   "description": "",
   "main": "bot.js",
   "scripts": {
-    "start": "node bot.js",
-    "devStart": "node bot.js",
+    "start": "nodemon bot.js",
+    "devStart": "nodemon bot.js",
     "test": "jest --verbose --coverage"
   },
   "repository": {
