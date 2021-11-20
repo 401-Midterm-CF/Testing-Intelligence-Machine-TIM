@@ -2,10 +2,10 @@
   "name": "testing-intelligence-machine-tim",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "bot.js",
   "scripts": {
     "start": "node bot.js",
-    "devStart": "nodemon bot.js",
+    "devStart": "node bot.js",
     "test": "jest --verbose --coverage"
   },
   "repository": {
